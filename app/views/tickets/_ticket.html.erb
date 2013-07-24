@@ -1,3 +1,4 @@
-<%= content_tag_for(:div, ticket) do %>
+<% hidden_class = ticket.drawn? ? 'hidden' : '' %>
+<%= content_tag_for(:div, ticket, 'data-id' => ticket.id, class: hidden_class) do %>
   <%= ticket.number %>
 <% end %>
