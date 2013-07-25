@@ -1,14 +1,46 @@
 $(function(){
+
+  function negotiateFontSize(){
+    var pixelArea = $('.raffle').width() * $('.raffle').height();
+    var nodeCount = $('.raffle').attr('data-ticket-total');
+    var visibleNodes = $('.raffle .ticket:visible').length;
+    var area = pixelArea /  visibleNodes;
+    var height = Math.sqrt(area);
+    var fontSize = height / 2.89;
+
+    console.log(fontSize);
+    return fontSize;
+  }
+
+  function updateFontSize(){
+    var fontSize = negotiateFontSize();
+    $('.raffle .ticket').css('fontSize', fontSize);
+  }
+
   $('.ticket').click(function(e){
     e.preventDefault();
-    // So - this click should PUT to TicketsController#update and 
-    // recalculate font size based on the number of elements remaining.
-    //
-    // We could keep track of this via JS, or simple do a JSON request
-    // against RafflesController#show
 
-    $(this).addClass('hidden');
+    var node = this;
+    var id = $(this).attr('data-id');
 
+    $.ajax({
+      type: 'POST',
+      url: '/tickets/' + id,
+      dataType: 'json',
+      data: {
+        '_method': 'PUT',
+        'ticket': {
+          'drawn': true
+        }
+      },
+      complete: function(){
+        updateFontSize();
+      },
+      success: function(data, status, jqxhr){
+        $(node).addClass('hidden');
+      }
+    });
   });
 
+  updateFontSize();
 });

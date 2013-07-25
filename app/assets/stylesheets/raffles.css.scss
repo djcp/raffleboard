@@ -3,10 +3,13 @@ body{
 }
 
 .raffle{
-  width: 1024px;
-  height: 768px;
-  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle;
+  width: 1004px;
+  height: 748px;
   text-align: center;
+  overflow: hidden;
+  padding: 10px;
 }
 
 .ticket{
@@ -15,11 +18,11 @@ body{
   color: white;
   display: inline-block;
   border: 2px solid #ccc;
-  box-shadow: 5px 5px 5px #888;
-  padding: .25em;
-  margin: .25em;
-  font-size: 21.25px;
+  box-shadow: .25em .25em .25em #888;
+  margin: 0em .25em .25em 0em;
   width: 2em;
+  height: 2em;
+  line-height: 2em;
   text-align: center;
   border-radius: 0px 1em;
   background-color: blue;
