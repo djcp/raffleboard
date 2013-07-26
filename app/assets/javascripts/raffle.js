@@ -4,11 +4,12 @@ $(function(){
     var pixelArea = $('.raffle').width() * $('.raffle').height();
     var nodeCount = $('.raffle').attr('data-ticket-total');
     var visibleNodes = $('.raffle .ticket:visible').length;
-    var area = pixelArea /  visibleNodes;
-    var height = Math.sqrt(area);
-    var fontSize = height / 2.89;
+    var nodeAvailableArea = pixelArea / visibleNodes;
+    var borderWidth = 4;
 
-    console.log(fontSize);
+    var height = Math.sqrt(nodeAvailableArea - borderWidth);
+    var fontSize = height / 2.8;
+
     return fontSize;
   }
 

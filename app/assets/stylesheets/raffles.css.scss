@@ -3,13 +3,14 @@ body{
 }
 
 .raffle{
-  display: table-cell;
+  /* display: table-cell; */
   vertical-align: middle;
   width: 1004px;
   height: 748px;
   text-align: center;
   overflow: hidden;
-  padding: 10px;
+  padding: 9px;
+  border: 1px solid black;
 }
 
 .ticket{
