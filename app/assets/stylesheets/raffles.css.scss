@@ -3,7 +3,7 @@ body{
 }
 
 .raffle{
-  /* display: table-cell; */
+  display: table-cell;
   vertical-align: middle;
   width: 1004px;
   height: 748px;
@@ -16,24 +16,42 @@ body{
 .ticket{
   font-weight: bold;
   font-family: Helvetica;
-  color: white;
+  color: black;
   display: inline-block;
   border: 2px solid #ccc;
-  box-shadow: .25em .25em .25em #888;
-  margin: 0em .25em .25em 0em;
+  box-shadow: .2em .2em .2em #888;
+  margin: 0em .25em .3em 0em;
   width: 2em;
-  height: 2em;
-  line-height: 2em;
+  height: 1.75em;
+  line-height: 1.75em;
   text-align: center;
-  border-radius: 0px 1em;
-  background-color: blue;
+  border-radius: .25em;
+  background-color: #FFFF00;
 }
 
 .ticket:hover{
   cursor: pointer;
   background-color: black;
+  color: #ffff00;
 }
 
 .hidden{
   display: none;
+}
+
+.ticket.admin {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  font-size: 24px;
+  line-height: 1.4em;
+  margin: .5em;
+}
+
+.ticket.admin.drawn{
+  background: #e4e4e4;
+}
+
+.ticket.admin .form{
+  font-size: 12px;
 }

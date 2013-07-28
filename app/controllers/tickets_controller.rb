@@ -5,6 +5,14 @@ class TicketsController < ApplicationController
     ticket.attributes = ticket_params
 
     respond_to do |format|
+      format.html do
+        if ticket.save
+          flash[:notice] = 'Updated!'
+        else
+          flash[:error] = ticket.errors.full_messages.join(', ')
+        end
+        redirect_to admin_raffle_path(ticket.raffle.id)
+      end
       format.json do
         if ticket.save
           render json: {}, status: :ok

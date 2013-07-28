@@ -1,0 +1,9 @@
+<div class="ticket admin <%= (ticket.drawn?) ? 'drawn' : '' %>">
+  <%= simple_form_for(ticket) do |form| %>
+    <span class="number"><%= ticket.number %></span>
+    <span class="form">
+      <%= form.input :drawn %>
+      <%= form.submit :go %>
+    </span>
+  <% end %>
+</div>

@@ -5,10 +5,9 @@ $(function(){
     var nodeCount = $('.raffle').attr('data-ticket-total');
     var visibleNodes = $('.raffle .ticket:visible').length;
     var nodeAvailableArea = pixelArea / visibleNodes;
-    var borderWidth = 4;
 
-    var height = Math.sqrt(nodeAvailableArea - borderWidth);
-    var fontSize = height / 2.8;
+    var height = Math.sqrt(nodeAvailableArea);
+    var fontSize = height / 2.77;
 
     return fontSize;
   }
@@ -18,7 +17,7 @@ $(function(){
     $('.raffle .ticket').css('fontSize', fontSize);
   }
 
-  $('.ticket').click(function(e){
+  $('.ticket:not(".admin")').click(function(e){
     e.preventDefault();
 
     var node = this;
@@ -38,7 +37,7 @@ $(function(){
         updateFontSize();
       },
       success: function(data, status, jqxhr){
-        $(node).addClass('hidden');
+        $(node).toggle(300);
       }
     });
   });
