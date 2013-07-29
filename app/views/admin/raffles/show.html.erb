@@ -1,3 +1,9 @@
 <h1><%= @raffle.name %> Raffle Admin</h1>
 
+<p> Ticket numbers drawn: </p>
+<% drawn_tickets = @raffle.tickets.where(drawn: true).order('updated_at') %>
+<p><%= drawn_tickets.map(&:number).join(', ') %></p>
+<h3>Total drawn: <%= drawn_tickets.length %>, <%= @raffle.number_of_tickets - drawn_tickets.length %> remaining</h3>
+
 <%= render @tickets %>
+

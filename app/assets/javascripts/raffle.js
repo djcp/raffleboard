@@ -37,7 +37,7 @@ $(function(){
         updateFontSize();
       },
       success: function(data, status, jqxhr){
-        $(node).toggle(300);
+        $(node).toggle('slow');
       }
     });
   });
