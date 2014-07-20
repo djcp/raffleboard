@@ -1,5 +1,6 @@
 body{
   margin: 0px auto;
+  overflow: hidden;
 }
 
 // $yellow: #ffff00;
@@ -8,8 +9,8 @@ $yellow: #ffff55;
 .raffle{
   display: table-cell;
   vertical-align: middle;
-  width: 1004px;
-  height: 748px;
+  // width: 1004px;
+  // height: 748px;
   text-align: center;
   overflow: hidden;
   padding: 9px;
@@ -24,8 +25,8 @@ $yellow: #ffff55;
   box-shadow: .2em .2em .2em #888;
   margin: 0em .25em .3em 0em;
   width: 2em;
-  height: 1.75em;
-  line-height: 1.75em;
+  height: 1.85em;
+  line-height: 1.85em;
   text-align: center;
   border-radius: .25em;
   background-color: $yellow;

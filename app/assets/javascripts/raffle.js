@@ -13,8 +13,22 @@ $(function(){
   }
 
   function updateFontSize(){
+    var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - 20;
+    var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 20;
+    $('.raffle').css({'width': width, 'height': height});
     var fontSize = negotiateFontSize();
     $('.raffle .ticket').css('fontSize', fontSize);
+  }
+
+  function flashIfWinner(){
+    if ($('.ticket:visible').length == 1) {
+      effectOptions = {
+        'effect': 'explode',
+        'duration': 3000,
+        'complete': function(){$(this).show()}
+      };
+      $('.ticket:visible').effect(effectOptions);
+    }
   }
 
   $('.ticket:not(".admin")').click(function(e){
@@ -34,13 +48,19 @@ $(function(){
         }
       },
       complete: function(){
-        updateFontSize();
-      },
-      success: function(data, status, jqxhr){
-        $(node).toggle('slow');
+        effectOptions = {
+          'effect': 'fade',
+          'duration': 500,
+          complete: function(){
+            updateFontSize();
+            flashIfWinner()
+          }
+        }
+        $(node).effect(effectOptions);
       }
     });
   });
 
   updateFontSize();
+  flashIfWinner();
 });
