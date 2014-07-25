@@ -6,6 +6,6 @@ class Admin::RafflesController < ApplicationController
 
   def show
     @raffle = Raffle.find(params[:id])
-    @tickets = @raffle.tickets
+    @tickets = @raffle.tickets.order('number')
   end
 end

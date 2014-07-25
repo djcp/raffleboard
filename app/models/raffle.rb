@@ -1,7 +1,7 @@
 class Raffle < ActiveRecord::Base
   attr_accessible :name, :number_of_tickets
 
-  has_many :tickets, order: 'number ASC'
+  has_many :tickets
   validates :number_of_tickets,  presence: true,  numericality: true
 
   after_create do

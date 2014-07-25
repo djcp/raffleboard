@@ -5,7 +5,7 @@ class RafflesController < ApplicationController
 
   def show
     @raffle = Raffle.find(params[:id])
-    @tickets = @raffle.tickets.limit(200)
+    @tickets = @raffle.tickets.order('number asc').limit(200)
 
     respond_to do |format|
       format.html { }
