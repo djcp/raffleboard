@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Raffle.create!(name: 'Big Money', number_of_tickets: 250)
+Raffle.create!(name: 'Big Money', number_of_tickets: 215)
