@@ -5,6 +5,8 @@ development: &default
   min_messages: warning
   pool: 5
   timeout: 5000
+  host: localhost
+  user: djcp
 
 test:
   <<: *default
