@@ -3,7 +3,7 @@
 <p> Ticket numbers drawn: </p>
 <% drawn_tickets = @raffle.tickets.where(drawn: true).order('updated_at') %>
 <p>
-<% drawn_tickets.map(&:number).each_slice(25) do |tickets| %>
+<% drawn_tickets.map(&:number).each_slice(20) do |tickets| %>
   <%= tickets.join(', ') %><br/>
 <% end %>
 </p>
